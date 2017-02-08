@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--本页面由metheno制作，博客metheno.net-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>Dead!</title>
+
+    <link rel="stylesheet" href="http://www.metheno.net/style.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h2 class="title">Dead!</h2>
+    <p class="description">您正在浏览博客的一篇文章<br>在此之前请允许我们进行安全检测</p>
+    <p class="boom"><p>
+    <p class="footer">Powered by Ahref Anti-CC System</p>
+  </body>
+  <script src="/main/jquery.min.js"></script>
+	<script type="text/javascript">
+	$.ajax({
+				type:"POST",
+				url:"/Anti/console.php",
+				dataType:"json",
+				data:{
+				},
+				success:function(data){
+					$('.boom').html(data.info);
+				},
+			});
+	setTimeout("$('.description').html('正在跳转回' + window.location.href);" , 1500);
+	setTimeout("window.location.reload()" , 2000);
+	</script>
+</html>

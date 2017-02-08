@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>Dead!</title>
+
+    <link rel="stylesheet" href="http://www.metheno.net/style.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h2 class="title">Ooops!</h2>
+    <p class="description">我们检测到您正处于QQ或微信内置浏览器访问本站<br>为了您的正常浏览，请点击右上角，选择系统浏览器来访问</p>
+    <p class="boom"><p>
+    <p class="footer">Powered by Ahref Anti-CC System</p>
+  </body>
+  <script src="/main/jquery.min.js"></script>
+  <script>
+      $.ajax({
+				type:"POST",
+				url:"/Anti/console.php",
+				dataType:"json",
+				data:{
+				},
+				success:function(data){
+					$('.boom').html(data.info);
+				},
+			}); 
+  </script>
+</html>
