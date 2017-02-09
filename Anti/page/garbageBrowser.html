@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--本页面由metheno制作，博客metheno.net-->
 <html>
   <head>
     <meta charset="utf-8">
@@ -16,14 +15,14 @@
     <![endif]-->
   </head>
   <body>
-    <h2 class="title">Dead!</h2>
-    <p class="description">您正在浏览博客的一篇文章<br>在此之前请允许我们进行安全检测</p>
+    <h2 class="title">Ooops!</h2>
+    <p class="description">您的浏览器处于我们的黑名单之中<br>请更换浏览器</p>
     <p class="boom"><p>
     <p class="footer">Powered by Ahref Anti-CC System</p>
   </body>
   <script src="/main/jquery.min.js"></script>
-	<script type="text/javascript">
-	$.ajax({
+  <script>
+      $.ajax({
 				type:"POST",
 				url:"/Anti/console.php",
 				dataType:"json",
@@ -32,8 +31,6 @@
 				success:function(data){
 					$('.boom').html(data.info);
 				},
-			});
-	setTimeout("$('.description').html('正在跳转回' + window.location.href);" , 1500);
-	setTimeout("window.location.reload()" , 2000);
-	</script>
+			}); 
+  </script>
 </html>

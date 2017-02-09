@@ -13,17 +13,19 @@ include('conf.php'); //载入配置
 //forceProtogenesis 模块
 function forceProtogensis()
 {
-	global $focrProtogenesis;
-	if (strpos($_SERVER['HTTP_USER_AGENT'], "QQ") || strpos($_SERVER['HTTP_USER_AGENT'], "MicroMessenger")) {
-		include('/page/forceProtogenesis.html');
-	}else Anti();
+	global $blockList;
+	foreach($blockList as $item){
+	    if (strpos($_SERVER['HTTP_USER_AGENT'], $item)){
+	        include('page/forceProtogenesis.html');
+	        return false;}
+	}
+	return true;
 }
 
 	
 //Anti-CC 模块
 function Anti()
 {
-	global $AntiCC;
 	if(empty($_COOKIE['t']) || empty($_COOKIE['v'])){ //如果检测不到cookie，则说明首次访问，进入引导页。
 		if ($_SERVER['PHP_SELF'] != ""){ //如果检测到访问文章页，则进入快速检查通道
 			include('page/quickAuth.html');
@@ -55,7 +57,13 @@ function Anti()
 
 function browserBlock()
 {
-    
+	global $browserList;
+	foreach($browserList as $item){
+	    if (strpos($_SERVER['HTTP_USER_AGENT'], $item)){
+	        include('page/garbageBrowser.html');
+	        return false;}
+	}
+	return true;
 }
 function setAuth()
 {

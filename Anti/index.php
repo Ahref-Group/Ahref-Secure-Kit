@@ -9,6 +9,7 @@
 
 require('conf.php');
 require('protect.php');
-if ($forceProtogensis == 1) forceProtogensis();
-if ($AntiCC == 1) Anti();
+if ($forceProtogenesis == 1) forceProtogensis();
 if ($browserBlock == 1) browserBlock();
+if (forceProtogensis() == true && browserBlock() == true)
+    if ($AntiCC == 1) Anti();

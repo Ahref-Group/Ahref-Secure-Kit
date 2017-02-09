@@ -20,5 +20,13 @@
  $haveGuidePage = 1; //是否带有引导页
 
  /**以下为浏览器屏蔽配置*/
+ $browserList = array("MSIE 8.0", "MSIE 7.0", "MSIE 6.0", "360", "SouGou");
  
  /**以下为强制系统浏览器屏蔽配置*/
+ $blockList = array("QQ", "MicroMessenger", "tieba"); 
+ /**配置列表：
+  * 微信：MicroMessenger
+  * QQ：QQ
+  * 贴吧：tieba
+  * 知乎：zhihu
+  * 更多暂时未发现... */
