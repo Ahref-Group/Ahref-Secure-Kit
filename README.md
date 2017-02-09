@@ -1,5 +1,6 @@
 # Anti-CC-System-for-Typecho
 <<<<<<< HEAD
+<<<<<<< HEAD
 A small Anti-CC plugin designed for Typecho.
 
 ##使用方法
@@ -14,9 +15,15 @@ metheno 提供页面
 
 
 =======
+=======
+>>>>>>> origin/early-release
 A small Anti-CC system designed for Typecho.
 
 Install
 ------
+<<<<<<< HEAD
+Simply clone this repository to your root directory of Typecho. Remember to replace 'index.php'.
+>>>>>>> origin/early-release
+=======
 Simply clone this repository to your root directory of Typecho. Remember to replace 'index.php'.
 >>>>>>> origin/early-release
