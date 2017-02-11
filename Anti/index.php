@@ -7,9 +7,16 @@
  * Including pages by metheno (https://metheno.net)
  */
 
+<<<<<<< HEAD
 require('conf.php');
 require('protect.php');
 if ($forceProtogenesis == 1) forceProtogensis();
+=======
+require_once('conf.php');
+require_once('protect.php');
+if ($forceProtogensis == 1) forceProtogensis();
+if ($AntiCC == 1) Anti();
+>>>>>>> origin/early-release
 if ($browserBlock == 1) browserBlock();
 if (forceProtogensis() == true && browserBlock() == true)
     if ($AntiCC == 1) Anti();

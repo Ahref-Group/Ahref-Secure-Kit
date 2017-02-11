@@ -9,7 +9,7 @@
 
 
 //此页面仅为带有引导页的博客服务，若没有请勿使用
-    include('conf.php'); //载入配置
+    require_once('conf.php'); //载入配置
     if(empty($_COOKIE['t']) || empty($_COOKIE['v'])){
         $back['code'] = 0;
         $back['info'] = "您的浏览器过长时间未访问<br>可能需要更多时间";
