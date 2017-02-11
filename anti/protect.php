@@ -31,7 +31,6 @@ function antiCC()
 		else{
 			setAuth();
 			loadContent();
-			}
 		}
 	}else{
 		global $key;
