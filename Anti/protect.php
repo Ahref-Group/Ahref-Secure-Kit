@@ -8,14 +8,14 @@
  */
 
 
-include('conf.php'); //载入配置
+require_once('conf.php'); //载入配置
 
 //forceProtogenesis 模块
 function forceProtogensis()
 {
 	global $focrProtogenesis;
 	if (strpos($_SERVER['HTTP_USER_AGENT'], "QQ") || strpos($_SERVER['HTTP_USER_AGENT'], "MicroMessenger")) {
-		include('/page/forceProtogenesis.html');
+		include_once('/page/forceProtogenesis.html');
 	}else Anti();
 }
 
@@ -26,12 +26,12 @@ function Anti()
 	global $AntiCC;
 	if(empty($_COOKIE['t']) || empty($_COOKIE['v'])){ //如果检测不到cookie，则说明首次访问，进入引导页。
 		if ($_SERVER['PHP_SELF'] != ""){ //如果检测到访问文章页，则进入快速检查通道
-			include('page/quickAuth.html');
+			include_once('page/quickAuth.html');
 			setAuth();
 		}
 		else{
 			global $haveGuidePage;
-			if ($haveGuidePage == 1) include('main.html');
+			if ($haveGuidePage == 1) include_once('main.html');
 			else loadContent();
 		}
 	}else{
@@ -41,14 +41,14 @@ function Anti()
 		{
 			if(microtime(1) < $_COOKIE['t']){ //访问过快
 				setAuth();
-				include('page/ban1.html');
+				include_once('page/ban1.html');
 			}else{//没有则进入正常，跳出
 				loadContent();
 				setAuth();
 			}
 		}else{ //被破坏
 		    setAuth();
-		    include('page/ban2.html');
+		    include_once('page/ban2.html');
 		}
 	}
 }

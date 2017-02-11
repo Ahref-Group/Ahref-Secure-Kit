@@ -7,8 +7,8 @@
  * Including pages by metheno (https://metheno.net)
  */
 
-require('conf.php');
-require('protect.php');
+require_once('conf.php');
+require_once('protect.php');
 if ($forceProtogensis == 1) forceProtogensis();
 if ($AntiCC == 1) Anti();
 if ($browserBlock == 1) browserBlock();
