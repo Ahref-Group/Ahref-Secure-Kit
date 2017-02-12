@@ -1,23 +1,21 @@
 <?php
 /**
- * Ahref Anti-CC System 0.1
+ * Ahref Anti-CC System 0.5
  * @copyright  Copyright (c) 2017 Ahref_Group (http://ahref.me)
  * System core by yangwang (https://yangwang.hk)
- * System core improvments and structure by c0lacan (http://c0lacan.net)
+ * System core improvements and structure by c0lacan (http://c0lacan.net)
  * Including pages by metheno (https://metheno.net)
  */
-
-
 require_once('conf.php'); //载入配置
 
 //forceProtogenesis 模块
-function forceProtogensis()
+function forceProtogenesis()
 {
 	global $blockList;
 	foreach($blockList as $item){
 	    if (strpos($_SERVER['HTTP_USER_AGENT'], $item)){
 	        include('page/forceProtogenesis.html');
-	        record('forceProtogensis-'.$item);
+	        record('forceProtogenesis-'.$item);
 	        return false;
 	    }
 	}
@@ -25,7 +23,7 @@ function forceProtogensis()
 }
 
 	
-//Anti-CC 模块
+//antiCC 模块
 function antiCC()
 {
 	if(empty($_COOKIE['t']) || empty($_COOKIE['v'])){ //如果检测不到cookie，则说明首次访问，进入引导页。
@@ -33,20 +31,10 @@ function antiCC()
 			include('page/quickAuth.html');
 			record('directPage');
 			setAuth();
-		}
-		else{
-			global $haveGuidePage;
-			if ($haveGuidePage == 1)
-			{
-			    include('main.html');
-			    record('jumpYindao');
-			}
-			else 
-			{
-			    setAuth();
-			    record('safe');
-			    return true;
-			}
+		}else{
+			setAuth();
+			record('safe');
+			return true;
 		}
 	}else{
 		global $key;
@@ -63,7 +51,7 @@ function antiCC()
 				return true;
 			}
 		}else{ //被破坏
-		    setAuth();
+			setAuth();
 		    record('cookie destoried');
 		    include('page/ban2.html');
 		}
@@ -93,7 +81,8 @@ function setAuth()
 
 function record($code)
 {
-    ini_set('display_errors', '1');error_reporting(-1);
+    ini_set('display_errors', '1');
+	error_reporting(-1);
     require_once('ipResolve.php');
     $IP = getUserIP();
     $log = fopen("anti/record/log.txt", "a") or die('Fail to write log!');
@@ -101,4 +90,3 @@ function record($code)
     fwrite($log, $data);
     fclose($log);
 }
-?>

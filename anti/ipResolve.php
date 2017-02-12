@@ -1,4 +1,11 @@
 <?php
+/**
+ * Ahref Anti-CC System 0.5
+ * @copyright  Copyright (c) 2017 Ahref_Group (http://ahref.me)
+ * System core by yangwang (https://yangwang.hk)
+ * System core improvements and structure by c0lacan (http://c0lacan.net)
+ * Including pages by metheno (https://metheno.net)
+ */
 function getUserIP()
 {
     $user_IP = '';  
@@ -50,7 +57,7 @@ function resolveIP($ip)
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "http://ipapi.ipip.net/find?addr=".$ip);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch,  CURLOPT_HTTPHEADER, array('Token: incert your Key'));
+    curl_setopt($ch,  CURLOPT_HTTPHEADER, array('Token:your key here'));
     $output = json_decode(curl_exec($ch), true);
     if($output['ret'] == 'ok'){
         $info = $output['data'][0].$output['data'][1].$output['data'][2].$output['data'][3].' '.$output['data'][4];

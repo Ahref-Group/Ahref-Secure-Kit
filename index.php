@@ -7,11 +7,7 @@
  * @version    $Id: index.php 1153 2009-07-02 10:53:22Z magike.net $
  */
 
-<<<<<<< HEAD
-include_once('Anti/index.php');
-=======
 include_once('anti/index.php');
->>>>>>> origin/early-release
 
 function loadContent()
 {
