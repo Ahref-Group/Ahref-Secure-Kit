@@ -96,7 +96,7 @@ function record($code)
     ini_set('display_errors', '1');error_reporting(-1);
     require_once('ipResolve.php');
     $IP = getUserIP();
-    $log = fopen("Anti/record/log.txt", "a") or die('Fail to write log!');
+    $log = fopen("anti/record/log.txt", "a") or die('Fail to write log!');
     $data = "\n" . microtime(1) . "|" . $IP . "|" . resolveIP($IP) . "|" . $_SERVER['REQUEST_URI'] . "|" .$_SERVER['HTTP_USER_AGENT']. "|" .$code;
     fwrite($log, $data);
     fclose($log);
