@@ -1,6 +1,6 @@
 <?php
 /**
- * Ahref Anti-CC System 0.5
+ * Ahref Secure Kit 0.7
  * @copyright  Copyright (c) 2017 Ahref_Group (http://ahref.me)
  * System core by yangwang (https://yangwang.hk)
  * System core improvements and structure by c0lacan (http://c0lacan.net)

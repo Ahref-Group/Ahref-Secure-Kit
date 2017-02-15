@@ -1,6 +1,6 @@
 <?php
 /**
- * Ahref Anti-CC System 0.5
+ * Ahref Secure Kit 0.7
  * @copyright  Copyright (c) 2017 Ahref_Group (http://ahref.me)
  * System core by yangwang (https://yangwang.hk)
  * System core improvements and structure by c0lacan (http://c0lacan.net)
@@ -81,12 +81,41 @@ function setAuth()
 
 function record($code)
 {
-    ini_set('display_errors', '1');
-	error_reporting(-1);
     require_once('ipResolve.php');
     $IP = getUserIP();
+    $time = date("Y.m.d H:i:s");
+    $jumpFrom = $_SERVER['HTTP_REFERER'];
+    $goTo = $_SERVER['REQUEST_URI'];
+    $browserInfo = $_SERVER['HTTP_USER_AGENT'];
     $log = fopen("anti/record/log.txt", "a") or die('Fail to write log!');
-    $data = "\n" . microtime(1) . "|" . $IP . "|" . resolveIP($IP) . "|" . $_SERVER['REQUEST_URI'] . "|" .$_SERVER['HTTP_USER_AGENT']. "|" .$code;
+    $data = "\n" . $time . "|" . $IP . "|" . resolveIP($IP) . "|" . $jumpFrom . "|" . $goTo. "|" . $browserInfo . "|" .$code;
     fwrite($log, $data);
     fclose($log);
+}
+
+function locationBlcok()
+{
+	require_once('ipResolve.php');
+	global $locationMethod, $locationList;
+	foreach ($locationList as $item)
+	{
+		if ($method == 1){
+			if(strpos(resolveIP(getUserIP()), $item)){
+				return true;
+			else{
+				record("locationBlcok-" . $item);
+				include('page/locationBlcok.html');
+				return false;
+			}
+		}
+		if ($method == 2){
+			if (strpos(resolveIP(getUserIP()),$item)){
+				record("locationBlcok-" . $item)
+				$include('page/locationBlcok.html');
+				return false;
+			}
+			else return true;
+		}
+	}
+	return false;
 }
