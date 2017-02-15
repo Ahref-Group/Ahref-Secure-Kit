@@ -93,14 +93,14 @@ function record($code)
     fclose($log);
 }
 
-function locationBlcok()
+function locationBlock()
 {
 	require_once('ipResolve.php');
 	global $locationMethod, $locationList;
 	foreach ($locationList as $item)
 	{
-		if ($method == 1){
-			if(strpos(resolveIP(getUserIP()), $item)){
+		if ($locationMethod == 1){
+			if(strpos(resolveIP(getUserIP()), $item))
 				return true;
 			else{
 				record("locationBlcok-" . $item);
@@ -108,10 +108,10 @@ function locationBlcok()
 				return false;
 			}
 		}
-		if ($method == 2){
+		if ($locationMethod == 2){
 			if (strpos(resolveIP(getUserIP()),$item)){
-				record("locationBlcok-" . $item)
-				$include('page/locationBlcok.html');
+				record("locationBlcok-" . $item);
+				include('page/locationBlock.html');
 				return false;
 			}
 			else return true;
