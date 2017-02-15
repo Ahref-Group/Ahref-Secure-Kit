@@ -103,14 +103,14 @@ function locationBlock()
 			if(strpos(resolveIP(getUserIP()), $item))
 				return true;
 			else{
-				record("locationBlcok-" . $item);
-				include('page/locationBlcok.html');
+				record("locationBlcok-" . resolveIP(getUserIP()));
+				include('page/locationBlock.html');
 				return false;
 			}
 		}
 		if ($locationMethod == 2){
 			if (strpos(resolveIP(getUserIP()),$item)){
-				record("locationBlcok-" . $item);
+				record("locationBlcok-" . resolveIP(getUserIP()));
 				include('page/locationBlock.html');
 				return false;
 			}
