@@ -8,5 +8,6 @@ A small Anti-CC plugin designed for Typecho.
 4. Enjoy！
 
 ##感谢
-yangwang 编写核心
+yangwang 编写防CC攻击核心
 metheno 提供页面
+
